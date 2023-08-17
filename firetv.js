@@ -7,7 +7,7 @@ var soef = require(`${__dirname}/lib/dontBeSoSoef`),
 
 let Client;
 try {
-    Client = require('./node_modules/adbkit/lib/adb/client');
+    Client = require('/opt/iobroker/node_modules/adbkit/lib/adb/client.js');
 } catch (e) {
     Client = require('../adbkit/lib/adb/client');
 }
@@ -154,7 +154,7 @@ function onMessage (obj) {
         case 'discovery':
             var mdns = Mdns({
                 timeout: 3,
-                name: '_amzn-wplay._tcp.local',
+                name: '_amzn-wplay._tcp',
                 find: 'amzn.dmgr:'
             });
             mdns.setFilter('ip', adapter.config.devices).run (function(res) {
